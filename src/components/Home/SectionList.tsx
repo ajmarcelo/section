@@ -10,14 +10,14 @@ interface SectionListProps {
 function SectionList({ data, title }: SectionListProps){ 
     const [activeTab, setActiveTab] = useState(0);
     const [activeAccordion, setActiveAccordion] = useState<number | null>(0);
-    const [isMobile, setIsMobile] = useState(window.innerWidth < 768); // Detect screen size
-
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+    
+    // Function to update screen size on resize
+    const handleResize = () => {
+        setIsMobile(window.innerWidth < 768);
+    };
+    
     useEffect(() => {
-        // Function to update screen size on resize
-        const handleResize = () => {
-            setIsMobile(window.innerWidth < 768);
-        };
-
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
     }, []);
