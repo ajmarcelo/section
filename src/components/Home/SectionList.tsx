@@ -22,6 +22,22 @@ function SectionList({ data, title }: SectionListProps){
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
+    // Sync activeTab based on activeAccordion changes
+    useEffect(() => {
+        if (activeAccordion === null && !isMobile) {
+            setActiveTab(0);
+        }
+        else if (activeAccordion != null && !isMobile){
+            setActiveTab(activeAccordion)
+        }
+
+    }, [activeAccordion]);
+
+    // Sync activeAccordion based on activeTab changes
+    useEffect(() => {
+        setActiveAccordion(activeTab)
+    }, [activeTab]);
+
     return (
         <div className="w-full max-w-3xl mx-auto p-4">
             <h1 className='font-bold text-xl'>{title}</h1>
