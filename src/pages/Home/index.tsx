@@ -22,11 +22,7 @@ function Home() {
     
     useEffect(()=>{
         fetchData()
-    },[])
-    
-    useEffect(() => {
-        console.log("Updated:", data);
-    }, [data]); // triggered when data is updated
+    },[]) 
 
     return (
     <div className= "">
