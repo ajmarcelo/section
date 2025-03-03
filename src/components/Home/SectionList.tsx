@@ -31,7 +31,7 @@ function SectionList({ data, title }: SectionListProps){
                     {data.map((section, index) => (
                         <div key={index} className="">
                             <button
-                                className={`font-bold w-full p-3 flex justify-between items-center text-left border-x border-b border-slate-500 ${activeAccordion === index ? "border-0 bg-slate-500 text-black" : "bg-slate-300 text-black"}`}
+                                className={`font-bold w-full p-3 flex justify-between items-center text-left text-xl border-x border-b border-slate-500 ${activeAccordion === index ? "border-0 bg-slate-500 text-black" : "bg-slate-300 text-black"}`}
                                 onClick={() => setActiveAccordion(activeAccordion === index ? null : index)}
                             >
                                 {section.title}
