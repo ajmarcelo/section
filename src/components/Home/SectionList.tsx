@@ -31,7 +31,7 @@ function SectionList({ data, title }: SectionListProps){
             setActiveTab(activeAccordion)
         }
 
-    }, [activeAccordion]);
+    }, [activeAccordion, isMobile]);
 
     // Sync activeAccordion based on activeTab changes
     useEffect(() => {
