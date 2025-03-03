@@ -22,21 +22,25 @@ function SectionList({ data, title }: SectionListProps){
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    // Sync activeTab based on activeAccordion changes
+    // Sync activeTab based on activeAccordion and screen size changes
     useEffect(() => {
-        if (activeAccordion === null && !isMobile) {
-            setActiveTab(0);
+        if(activeAccordion === null) {
+            if(!isMobile)
+                setActiveAccordion(0)
+            setActiveTab(0)
         }
-        else if (activeAccordion != null && !isMobile){
+        else {
             setActiveTab(activeAccordion)
         }
-
+        // console.log("tab: ", activeTab, "acc: ", activeAccordion)
     }, [activeAccordion, isMobile]);
 
-    // Sync activeAccordion based on activeTab changes
+    // Sync activeAccordion based on activeTab and screen size changes
     useEffect(() => {
-        setActiveAccordion(activeTab)
-    }, [activeTab]);
+        if(!isMobile)
+            setActiveAccordion(activeTab)
+        // console.log("tab: ", activeTab, "acc: ", activeAccordion)
+    }, [activeTab, isMobile])
 
     return (
         <div className="w-full max-w-3xl mx-auto p-4">
