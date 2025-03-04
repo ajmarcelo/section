@@ -45,9 +45,9 @@ function SectionList({ data, title }: SectionListProps){
     return (
         <div className="w-full max-w-3xl mx-auto p-4">
             <h1 className='font-bold text-xl'>{title}</h1>
-            {isMobile ? (
-                // Accordion for Mobile
-                <div className="border-t border-slate-500">
+            {/* {isMobile ? ( */}
+                {/* Accordion for Mobile */}
+                <div className="md:hidden border-t border-slate-500">
                     {data.map((section, index) => (
                         <div key={index} className="">
                             <button
@@ -63,9 +63,9 @@ function SectionList({ data, title }: SectionListProps){
                         </div>
                     ))}
                 </div>
-            ) : (
-                //  Tabs for Desktop
-                <div className="">
+            {/* ) : ( */}
+                {/* Tabs for Desktop */}
+                <div className="hidden md:block">
                     <div className="flex">
                         {data.map((section, index) => (
                             <button
@@ -81,7 +81,7 @@ function SectionList({ data, title }: SectionListProps){
                     </div>
                     <SectionTab isMobile={isMobile} section={data[activeTab]}/> 
                 </div>
-            )}
+            {/* )} */}
         </div>
     )
 }
